@@ -1,0 +1,3 @@
+uncoupledReactingFoam.C
+
+EXE = /home/ld642/OpenFOAM/ld642-v2312/platforms/linux64GccDPInt32-spack/bin/uncoupledReactingFoam
