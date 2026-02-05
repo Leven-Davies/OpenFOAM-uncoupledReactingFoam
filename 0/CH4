@@ -1,0 +1,69 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2506                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    object      CH4;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 0 0 0 0 0 0];
+
+internalField   uniform 0;
+
+boundaryField
+{
+    inletJet
+    {
+        type            fixedValue;
+        value           uniform 1;
+    }
+
+    inletLow
+    {
+        type            fixedValue;
+        value           uniform 0;
+    }
+
+    inletHigh
+    {
+        type            fixedValue;
+        value           uniform 0;
+    }
+
+    outlet
+    {
+        type            inletOutlet;
+        inletValue      uniform 0; // If air is sucked back in, it has 0 fuel.
+        value           uniform 0; // Better to start with 0 at the outlet for a jet.
+    }
+
+    upperWall
+    {
+        type            inletOutlet;
+        inletValue      uniform 0; // If air is sucked back in, it has 0 fuel.
+        value           uniform 0; // Better to start with 0 at the outlet for a jet.
+    }
+
+    lowerWall
+    {
+        type            inletOutlet;
+        inletValue      uniform 0; // If air is sucked back in, it has 0 fuel.
+        value           uniform 0; // Better to start with 0 at the outlet for a jet.
+    }
+
+    frontAndBack
+    {
+        type            empty;
+    }
+}
+
+
+// ************************************************************************* //
